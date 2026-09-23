@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Personal portfolio of Avery Cole — web developer, graphic designer, motion designer, and digital marketer. Open to freelance work and full-time roles."
+    />
+    <title>Avery Cole — Creative Technologist</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://unpkg.com" />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      (function () {
+        document.documentElement.setAttribute("data-theme", localStorage.getItem("ac-theme") || "dark");
+      })();
+    </script>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect rx='14' width='64' height='64' fill='%230c0c0d'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia' font-size='28' fill='%23c9f24a'%3EAC%3C/text%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"><span class="scroll-progress-bar" data-scroll-progress></span></div>
+
+    <!-- Brand icon sprite (lucide no longer ships brand icons) -->
+    <svg class="icon-sprite" aria-hidden="true" focusable="false">
+      <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" /></symbol>
+      <symbol id="i-behance" viewBox="0 0 24 24"><path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988H0V5.021h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zM3 11h3.584c2.508 0 2.906-3-.312-3H3v3zm3.391 3H3v3.016h3.341c3.055 0 2.868-3.016.05-3.016z" /></symbol>
+      <symbol id="i-dribbble" viewBox="0 0 24 24"><path d="M12 24C5.385 24 0 18.615 0 12S5.385 0 12 0s12 5.385 12 12-5.385 12-12 12zm10.12-10.358c-.35-.11-3.17-.953-6.384-.438 1.34 3.684 1.887 6.684 1.992 7.308 2.3-1.555 3.936-4.02 4.395-6.87zm-6.115 7.808c-.153-.9-.75-4.032-2.19-7.77l-.066.02c-5.79 2.015-7.86 6.025-8.04 6.4 1.73 1.358 3.92 2.166 6.29 2.166 1.42 0 2.77-.29 4-.814zm-11.62-2.58c.232-.4 3.045-5.055 8.332-6.765.135-.045.27-.084.405-.12-.26-.585-.54-1.167-.832-1.74C7.17 11.775 2.206 11.71 1.756 11.7l-.004.312c0 2.633.998 5.037 2.634 6.855zm-2.42-8.955c.46.008 4.683.026 9.477-1.248-1.698-3.018-3.53-5.558-3.8-5.928-2.868 1.35-5.01 3.99-5.676 7.17zM9.6 2.052c.282.38 2.145 2.914 3.822 6 3.645-1.365 5.19-3.44 5.373-3.702-1.81-1.61-4.19-2.586-6.795-2.586-.825 0-1.63.1-2.4.285zm10.335 3.483c-.218.29-1.935 2.493-5.724 4.04.24.49.47.985.68 1.486.08.18.15.36.22.53 3.41-.43 6.8.26 7.14.33-.02-2.42-.88-4.64-2.31-6.38z" /></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" /></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z" /></symbol>
+      <symbol id="i-pinterest" viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z" /></symbol>
+      <symbol id="i-youtube" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" /></symbol>
+    </svg>
+
+    <!-- ========== Header / Navigation ========== -->
+    <header class="site-header" id="top">
+      <div class="container nav-inner">
+        <a class="logo" href="#top" aria-label="Avery Cole home">
+          <span class="logo-mark">AC</span>
+          <span class="logo-text">Avery Cole</span>
+        </a>
+
+        <nav class="nav-desktop" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#skills">Expertise</a>
+          <a href="#work">Work</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle>
+            <i data-lucide="sun" class="icon-sun"></i>
+            <i data-lucide="moon" class="icon-moon"></i>
+            <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          </button>
+          <a class="btn btn-sm btn-primary nav-cta" href="#contact">Hire me</a>
+          <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-menu-toggle>
+            <span class="menu-burst" aria-hidden="true"></span>
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile drawer -->
+    <div class="nav-overlay" data-nav-overlay hidden></div>
+    <aside class="nav-drawer" id="mobile-nav" aria-hidden="true">
+      <p class="drawer-label">Navigate</p>
+      <nav class="nav-mobile" aria-label="Mobile">
+        <a href="#about" style="--i: 0"><span class="nav-index">01</span><span class="nav-label">About</span></a>
+        <a href="#skills" style="--i: 1"><span class="nav-index">02</span><span class="nav-label">Expertise</span></a>
+        <a href="#work" style="--i: 2"><span class="nav-index">03</span><span class="nav-label">Selected Work</span></a>
+        <a href="#contact" style="--i: 3"><span class="nav-index">04</span><span class="nav-label">Contact</span></a>
+      </nav>
+      <a class="btn btn-primary drawer-cta" href="#contact" style="--i: 4">Hire me</a>
+    </aside>
+
+    <main>
+      <!-- ========== Hero ========== -->
+      <section class="hero" id="hero">
+        <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">
+              <span class="pulse-dot"></span>
+              Open to freelance &amp; full-time roles
+            </p>
+            <h1>
+              <span class="sr-only">Creative technologist crafting high-end digital experiences as a</span>
+              <span class="ripple-text" id="hero-ripple" aria-hidden="true">Creative technologist crafting <span class="display-line">high-end digital</span> experiences as a</span>
+              <span class="role-wrap">
+                <span class="role-title wiggle" id="role-title" data-roles='["Web Developer","Graphic Designer","Motion Designer","Digital Marketer"]'>Web Developer</span>
+              </span>
+            </h1>
+            <p class="lede">
+              I’m Avery Cole — a multidisciplinary creative who designs, builds, and ships digital work end to end. If you’re hiring, you get a full-time teammate who can own an interface, a campaign, or a brand system from kickoff to launch. If you’re a client, you get a freelancer who briefs, executes, and reports back in numbers.
+            </p>
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="#work">View My Work</a>
+              <a class="btn btn-ghost" href="#contact">Let’s Talk</a>
+              <a class="btn btn-link" href="assets/avery-cole-resume.pdf" download>
+                <i data-lucide="download"></i> Résumé
+              </a>
+            </div>
+            <ul class="hero-meta">
+              <li><strong>8+</strong> years experience</li>
+              <li><strong>40+</strong> projects shipped</li>
+              <li><strong>Full-time</strong> &amp; freelance</li>
+            </ul>
+          </div>
+
+          <div class="hero-visual reveal" data-delay="120">
+            <div class="portrait-card">
+              <div class="portrait-glow"></div>
+              <figure class="portrait-frame">
+                <img
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80"
+                  alt="Portrait of Avery Cole, creative technologist"
+                  width="720"
+                  height="900"
+                  fetchpriority="high"
+                />
+              </figure>
+              <div class="portrait-badge">
+                <i data-lucide="sparkles"></i>
+                <span>NYC · Open to relocate · Remote</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="marquee" aria-hidden="true">
+          <div class="marquee-track">
+            <span>HTML / CSS / JS</span><span>Figma</span><span>Motion</span><span>SEO &amp; paid</span>
+            <span>HTML / CSS / JS</span><span>Figma</span><span>Motion</span><span>SEO &amp; paid</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== About ========== -->
+      <section class="section about-section" id="about">
+        <div class="about-aurora" aria-hidden="true"></div>
+        <div class="container">
+          <header class="section-head reveal">
+            <p class="eyebrow">About</p>
+            <h2 class="kinetic">A studio mind inside a maker’s hands.</h2>
+            <p class="section-lede">I treat every brief like a brand film: composition, pacing, and a sharp reason to exist.</p>
+          </header>
+
+          <div class="about-grid">
+            <article class="about-story reveal">
+              <p class="about-lead">
+                I started in art direction, moved into interfaces, and stayed for the overlap — the moment type, code, and motion agree.
+              </p>
+              <p>
+                Teams bring me in when a product needs to feel expensive without becoming loud, then keep me around because I ship, document, and hand off cleanly. Clients stay when the work still converts after the launch glow fades.
+              </p>
+              <p class="about-availability">
+                <i data-lucide="badge-check"></i>
+                Currently open to <strong>full-time in-house roles</strong> and <strong>select freelance projects</strong> — remote-first, happy to hybrid.
+              </p>
+              <div class="about-pills">
+                <span>Art direction</span>
+                <span>Systems thinking</span>
+                <span>Prototype-to-production</span>
+                <span>Campaign craft</span>
+              </div>
+            </article>
+
+            <div class="about-orbit reveal" data-delay="80" aria-hidden="true">
+              <div class="orbit-core">AC</div>
+              <span class="orbit-item" style="--a: 0">Web</span>
+              <span class="orbit-item" style="--a: 1">Brand</span>
+              <span class="orbit-item" style="--a: 2">Motion</span>
+              <span class="orbit-item" style="--a: 3">Growth</span>
+            </div>
+          </div>
+
+          <ul class="about-stats">
+            <li class="stat-card reveal" data-delay="0">
+              <strong data-count="8">0</strong>
+              <span>years in practice</span>
+            </li>
+            <li class="stat-card reveal" data-delay="80">
+              <strong data-count="40">0</strong>
+              <span>brand systems</span>
+            </li>
+            <li class="stat-card reveal" data-delay="160">
+              <strong data-count="12">0</strong>
+              <span>countries served</span>
+            </li>
+            <li class="stat-card reveal" data-delay="240">
+              <strong data-count="98">0</strong>
+              <span>avg. Lighthouse</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ========== Skills ========== -->
+      <section class="section" id="skills">
+        <div class="container">
+          <header class="section-head reveal">
+            <p class="eyebrow">Skills &amp; expertise</p>
+            <h2 class="kinetic">Four practices. One standard of craft.</h2>
+            <p class="section-lede">A multidisciplinary approach — technical rigor with art-direction instincts, built by one person, not a roster.</p>
+          </header>
+
+          <div class="skill-orbit-3d reveal" aria-hidden="true">
+            <div class="orbit-stage">
+              <div class="orbit-tilt" data-orbit-tilt>
+                <span class="orbit-path orbit-path--outer"></span>
+                <span class="orbit-path orbit-path--inner"></span>
+                <div class="orbit-ring" style="--count: 8">
+                  <span class="orbit-chip" style="--i: 0">HTML/CSS</span>
+                  <span class="orbit-chip" style="--i: 1">JavaScript</span>
+                  <span class="orbit-chip" style="--i: 2">Figma</span>
+                  <span class="orbit-chip" style="--i: 3">After Effects</span>
+                  <span class="orbit-chip" style="--i: 4">SEO</span>
+                  <span class="orbit-chip" style="--i: 5">Motion</span>
+                  <span class="orbit-chip" style="--i: 6">Analytics</span>
+                  <span class="orbit-chip" style="--i: 7">Brand</span>
+                </div>
+                <span class="orbit-spark" style="--d: 0s; --t: 13s"></span>
+                <span class="orbit-spark" style="--d: -6s; --t: 13s"></span>
+                <span class="orbit-spark orbit-spark--far" style="--d: -3s; --t: 19s"></span>
+                <div class="orbit-core">
+                  <span>8+ yrs</span>
+                  <small>across 4 crafts</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-tabs reveal" role="tablist" aria-label="Disciplines">
+            <button class="skill-tab is-active" role="tab" aria-selected="true" data-tab="dev">
+              <i data-lucide="code-2"></i> Development
+            </button>
+            <button class="skill-tab" role="tab" aria-selected="false" data-tab="design">
+              <i data-lucide="pen-tool"></i> Graphic Design
+            </button>
+            <button class="skill-tab" role="tab" aria-selected="false" data-tab="motion">
+              <i data-lucide="clapperboard"></i> Motion Design
+            </button>
+            <button class="skill-tab" role="tab" aria-selected="false" data-tab="marketing">
+              <i data-lucide="line-chart"></i> Digital Marketing
+            </button>
+          </div>
+
+          <div class="skill-panels">
+            <article class="skill-panel is-active" data-panel="dev" role="tabpanel">
+              <div class="skill-grid">
+                <div class="skill-copy">
+                  <h3>Web development that feels designed</h3>
+                  <p>Performant, accessible front-ends with thoughtful motion and CMS-ready architecture. From marketing sites to product UI.</p>
+                  <div class="tags">
+                    <span>HTML / CSS / JS</span><span>Responsive systems</span><span>Performance</span><span>Accessibility</span><span>Headless CMS</span>
+                  </div>
+                </div>
+                <ul class="skill-rings">
+                  <li class="ring-item"><div class="ring"><svg viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"></circle><circle class="ring-fill" cx="60" cy="60" r="52"></circle></svg><span class="ring-value" data-target="94">0<small>%</small></span></div><span class="ring-label">Front-end architecture</span></li>
+                  <li class="ring-item"><div class="ring"><svg viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"></circle><circle class="ring-fill" cx="60" cy="60" r="52"></circle></svg><span class="ring-value" data-target="90">0<small>%</small></span></div><span class="ring-label">UI engineering</span></li>
+                  <li class="ring-item"><div class="ring"><svg viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"></circle><circle class="ring-fill" cx="60" cy="60" r="52"></circle></svg><span class="ring-value" data-target="88">0<small>%</small></span></div><span class="ring-label">Animation &amp; interaction</span></li>
+                  <li class="ring-item"><div class="ring"><svg viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"></circle><circle class="ring-fill" cx="60" cy="60" r="52"></circle></svg><span class="ring-value" data-target="82">0<small>%</small></span></div><span class="ring-label">Technical SEO</span></li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="skill-panel" data-panel="design" role="tabpanel" hidden>
+              <div class="skill-grid">
+                <div class="skill-copy">
+                  <h3>Identity, layout, and visual systems</h3>
+                  <p>Quiet luxury meets editorial precision. Logos, campaigns, and design systems that scale without losing character.</p>
+                  <div class="tags">
+                    <span>Brand identity</span><span>Art direction</span><span>Typography</span><span>Print &amp; digital</span><span>Figma</span>
+                  </div>
+                </div>
+                <ul class="skill-rings">
+                  <li class="ring-item"><div class="ring"><svg viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"></circle><circle class="ring-fill" cx="60" cy="60" r="52"></circle></svg><span class="ring-value" data-target="92">0<small>%</small></span></div><span class="ring-label">Brand systems</span></li>
+                  <li class="ring-item"><div class="ring"><svg viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"></circle><circle class="ring-fill" cx="60" cy="60" r="52"></circle></svg><span class="ring-value" data-target="89">0<small>%</small></span></div><span class="ring-label">Editorial layout</span></li>
+                  <li class="ring-item"><div class="ring"><svg viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"></circle><circle class="ring-fill" cx="60" cy="60" r="52"></circle></svg><span class="ring-value" data-target="95">0<small>%</small></span></div><span class="ring-label">Typography</span></li>
+                  <li class="ring-item"><div class="ring"><svg viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"></circle><circle class="ring-fill" cx="60" cy="60" r="52"></circle></svg><span class="ring-value" data-target="86">0<small>%</small></span></div><span class="ring-label">Campaign design</span></li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="skill-panel" data-panel="motion" role="tabpanel" hidden>
+              <div class="skill-grid">
+                <div class="skill-copy">
+                  <h3>Motion that clarifies, not clutters</h3>
+                  <p>Kinetic type, product stories, and brand films with timing that feels expensive — built for web, social, and launch.</p>
+                  <div class="tags">
+                    <span>After Effects</span><span>Cinema 4D</span><span>Lottie</span><span>Storyboards</span><span>Sound design</span>
+                  </div>
+                </div>
+                <ul class="skill-rings">
+                  <li class="ring-item"><div class="ring"><svg viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"></circle><circle class="ring-fill" cx="60" cy="60" r="52"></circle></svg><span class="ring-value" data-target="91">0<small>%</small></span></div><span class="ring-label">Motion systems</span></li>
+                  <li class="ring-item"><div class="ring"><svg viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"></circle><circle class="ring-fill" cx="60" cy="60" r="52"></circle></svg><span class="ring-value" data-target="93">0<small>%</small></span></div><span class="ring-label">Kinetic type</span></li>
+                  <li class="ring-item"><div class="ring"><svg viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"></circle><circle class="ring-fill" cx="60" cy="60" r="52"></circle></svg><span class="ring-value" data-target="78">0<small>%</small></span></div><span class="ring-label">3D / product</span></li>
+                  <li class="ring-item"><div class="ring"><svg viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"></circle><circle class="ring-fill" cx="60" cy="60" r="52"></circle></svg><span class="ring-value" data-target="87">0<small>%</small></span></div><span class="ring-label">Social cutdowns</span></li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="skill-panel" data-panel="marketing" role="tabpanel" hidden>
+              <div class="skill-grid">
+                <div class="skill-copy">
+                  <h3>Growth with a creative backbone</h3>
+                  <p>Campaigns, funnels, and content systems measured against real outcomes — not vanity metrics.</p>
+                  <div class="tags">
+                    <span>Paid social</span><span>SEO / content</span><span>Email journeys</span><span>Analytics</span><span>Landing pages</span>
+                  </div>
+                </div>
+                <ul class="skill-rings">
+                  <li class="ring-item"><div class="ring"><svg viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"></circle><circle class="ring-fill" cx="60" cy="60" r="52"></circle></svg><span class="ring-value" data-target="88">0<small>%</small></span></div><span class="ring-label">Campaign strategy</span></li>
+                  <li class="ring-item"><div class="ring"><svg viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"></circle><circle class="ring-fill" cx="60" cy="60" r="52"></circle></svg><span class="ring-value" data-target="90">0<small>%</small></span></div><span class="ring-label">Conversion design</span></li>
+                  <li class="ring-item"><div class="ring"><svg viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"></circle><circle class="ring-fill" cx="60" cy="60" r="52"></circle></svg><span class="ring-value" data-target="84">0<small>%</small></span></div><span class="ring-label">Content systems</span></li>
+                  <li class="ring-item"><div class="ring"><svg viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"></circle><circle class="ring-fill" cx="60" cy="60" r="52"></circle></svg><span class="ring-value" data-target="80">0<small>%</small></span></div><span class="ring-label">Performance media</span></li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== Portfolio ========== -->
+      <section class="section section-alt" id="work">
+        <div class="container">
+          <header class="section-head reveal">
+            <p class="eyebrow">Selected work</p>
+            <h2 class="kinetic">Projects with presence.</h2>
+            <p class="section-lede">A cross-section of product, identity, motion, and growth engagements.</p>
+          </header>
+
+          <div class="filters reveal" role="toolbar" aria-label="Filter projects">
+            <button class="filter-btn is-active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="web">Web Dev</button>
+            <button class="filter-btn" data-filter="graphic">Graphic Design</button>
+            <button class="filter-btn" data-filter="motion">Motion</button>
+            <button class="filter-btn" data-filter="marketing">Marketing</button>
+          </div>
+
+          <div class="portfolio-grid" id="portfolio-grid">
+            <article class="project-card reveal" data-category="web">
+              <div class="project-media">
+                <span class="project-index">01</span>
+                <span class="project-shine" aria-hidden="true"></span>
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Maison Atelier ecommerce interface" loading="lazy" decoding="async" />
+              </div>
+              <div class="project-body">
+                <div class="project-tags"><span>Web Dev</span><span>E‑commerce</span></div>
+                <h3>Maison Atelier</h3>
+                <p>Headless storefront for a luxury home brand — tactile UI, 98 Lighthouse performance.</p>
+                <div class="project-links">
+                  <a href="https://example.com" target="_blank" rel="noopener">Live demo</a>
+                  <div class="project-actions">
+                    <a class="platform-btn" href="https://github.com/" target="_blank" rel="noopener" aria-label="View source on GitHub"><svg aria-hidden="true"><use href="#i-github" /></svg></a>
+                    <button type="button" class="text-btn" data-project="maison">Project details</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal" data-category="graphic">
+              <div class="project-media">
+                <span class="project-index">02</span>
+                <span class="project-shine" aria-hidden="true"></span>
+                <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=1200&q=80" alt="Northline brand identity system" loading="lazy" decoding="async" />
+              </div>
+              <div class="project-body">
+                <div class="project-tags"><span>Graphic Design</span><span>Identity</span></div>
+                <h3>Northline</h3>
+                <p>Full identity system for a climate-tech studio: mark, type, and a 48-page brand book.</p>
+                <div class="project-links">
+                  <a href="https://behance.net" target="_blank" rel="noopener">Live demo</a>
+                  <div class="project-actions">
+                    <a class="platform-btn" href="https://www.pinterest.com/" target="_blank" rel="noopener" aria-label="View boards on Pinterest"><svg aria-hidden="true"><use href="#i-pinterest" /></svg></a>
+                    <button type="button" class="text-btn" data-project="northline">Project details</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal" data-category="motion">
+              <div class="project-media">
+                <span class="project-index">03</span>
+                <span class="project-shine" aria-hidden="true"></span>
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" alt="Kinetic type still from Orbit launch film" loading="lazy" decoding="async" />
+              </div>
+              <div class="project-body">
+                <div class="project-tags"><span>Motion</span><span>Launch film</span></div>
+                <h3>Orbit — Launch</h3>
+                <p>45-second product film and kinetic type system used across web, event, and paid social.</p>
+                <div class="project-links">
+                  <a href="https://vimeo.com" target="_blank" rel="noopener">Live demo</a>
+                  <div class="project-actions">
+                    <a class="platform-btn" href="https://www.pinterest.com/" target="_blank" rel="noopener" aria-label="View frames on Pinterest"><svg aria-hidden="true"><use href="#i-pinterest" /></svg></a>
+                    <a class="platform-btn" href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="Watch the film on YouTube"><svg aria-hidden="true"><use href="#i-youtube" /></svg></a>
+                    <button type="button" class="text-btn" data-project="orbit">Project details</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal" data-category="marketing">
+              <div class="project-media">
+                <span class="project-index">04</span>
+                <span class="project-shine" aria-hidden="true"></span>
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Analytics dashboard for growth campaign" loading="lazy" decoding="async" />
+              </div>
+              <div class="project-body">
+                <div class="project-tags"><span>Marketing</span><span>Growth</span></div>
+                <h3>Lumen Series</h3>
+                <p>Always-on acquisition system: landing pages, creative testing, and a 3.4× ROAS lift.</p>
+                <div class="project-links">
+                  <a href="https://example.com" target="_blank" rel="noopener">Live demo</a>
+                  <button type="button" class="text-btn" data-project="lumen">Project details</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal" data-category="web">
+              <div class="project-media">
+                <span class="project-index">05</span>
+                <span class="project-shine" aria-hidden="true"></span>
+                <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1200&q=80" alt="Editorial website design on laptop" loading="lazy" decoding="async" />
+              </div>
+              <div class="project-body">
+                <div class="project-tags"><span>Web Dev</span><span>Editorial</span></div>
+                <h3>Atelier Journal</h3>
+                <p>Magazine-grade web experience with scroll-driven chapters and a custom CMS.</p>
+                <div class="project-links">
+                  <a href="https://example.com" target="_blank" rel="noopener">Live demo</a>
+                  <div class="project-actions">
+                    <a class="platform-btn" href="https://github.com/" target="_blank" rel="noopener" aria-label="View source on GitHub"><svg aria-hidden="true"><use href="#i-github" /></svg></a>
+                    <button type="button" class="text-btn" data-project="journal">Project details</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal" data-category="graphic">
+              <div class="project-media">
+                <span class="project-index">06</span>
+                <span class="project-shine" aria-hidden="true"></span>
+                <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1200&q=80" alt="Packaging design still life" loading="lazy" decoding="async" />
+              </div>
+              <div class="project-body">
+                <div class="project-tags"><span>Graphic Design</span><span>Packaging</span></div>
+                <h3>Solace Botanics</h3>
+                <p>Packaging architecture and campaign photography for a wellness launch in 11 SKUs.</p>
+                <div class="project-links">
+                  <a href="https://dribbble.com" target="_blank" rel="noopener">Live demo</a>
+                  <div class="project-actions">
+                    <a class="platform-btn" href="https://www.pinterest.com/" target="_blank" rel="noopener" aria-label="View boards on Pinterest"><svg aria-hidden="true"><use href="#i-pinterest" /></svg></a>
+                    <button type="button" class="text-btn" data-project="solace">Project details</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== Contact ========== -->
+      <section class="section" id="contact">
+        <div class="container contact-grid">
+          <div class="contact-intro reveal">
+            <p class="eyebrow">Contact</p>
+            <h2 class="kinetic">Let’s build something with presence.</h2>
+            <p class="section-lede">
+              Hiring for a full-time role? Send a job spec. Got a project brief or a half-formed idea? Send that instead. I typically reply within two business days.
+            </p>
+            <a class="whatsapp-btn" href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" rel="noopener">
+              <i data-lucide="message-circle"></i>
+              Message on WhatsApp
+            </a>
+            <ul class="contact-points">
+              <li><i data-lucide="mail"></i> hello@averycole.studio</li>
+              <li><i data-lucide="map-pin"></i> New York · Remote worldwide</li>
+              <li><a href="assets/avery-cole-resume.pdf" download><i data-lucide="file-down"></i> Download résumé (PDF)</a></li>
+            </ul>
+          </div>
+
+          <form
+            class="contact-form reveal"
+            id="contact-form"
+            action="https://formspree.io/f/YOUR_FORM_ID"
+            method="POST"
+            novalidate
+          >
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required placeholder="Your name" />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@studio.com" />
+            </div>
+            <div class="field">
+              <label for="inquiry-type">This is about</label>
+              <select id="inquiry-type" name="inquiry-type" required>
+                <option value="" disabled selected>Select one…</option>
+                <option value="Full-time role">A full-time role</option>
+                <option value="Freelance project">A freelance project</option>
+                <option value="Something else">Something else</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="subject">Subject</label>
+              <input id="subject" name="subject" type="text" required placeholder="e.g. Senior Product Designer @ Acme" />
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required placeholder="Tell me about the work, timeline, and context."></textarea>
+            </div>
+            <button class="btn btn-primary btn-full" type="submit" id="form-submit">Send message</button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========== Footer ========== -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <span class="logo-mark">AC</span>
+          <p>Creative technology, considered.</p>
+        </div>
+        <nav class="socials" aria-label="Social">
+          <a href="https://github.com/YOUR_GITHUB" target="_blank" rel="noopener" aria-label="GitHub"><svg aria-hidden="true"><use href="#i-github" /></svg></a>
+          <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener" aria-label="LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin" /></svg></a>
+          <a href="https://www.behance.net/YOUR_BEHANCE" target="_blank" rel="noopener" aria-label="Behance"><svg aria-hidden="true"><use href="#i-behance" /></svg></a>
+          <a href="https://dribbble.com/YOUR_DRIBBBLE" target="_blank" rel="noopener" aria-label="Dribbble"><svg aria-hidden="true"><use href="#i-dribbble" /></svg></a>
+          <a href="https://x.com/YOUR_TWITTER" target="_blank" rel="noopener" aria-label="X / Twitter"><svg aria-hidden="true"><use href="#i-x" /></svg></a>
+          <a href="https://instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener" aria-label="Instagram"><svg aria-hidden="true"><use href="#i-instagram" /></svg></a>
+        </nav>
+        <p class="copyright">© <span id="year"></span> Avery Cole. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Project detail modal -->
+    <dialog class="modal" id="project-modal">
+      <div class="modal-inner">
+        <button class="modal-close" type="button" aria-label="Close" data-close-modal>
+          <i data-lucide="x"></i>
+        </button>
+        <p class="eyebrow" id="modal-tag"></p>
+        <h3 id="modal-title"></h3>
+        <p id="modal-body"></p>
+      </div>
+    </dialog>
+
+    <div class="cursor-dot" data-cursor-dot aria-hidden="true"></div>
+    <div class="cursor-ring" data-cursor-ring aria-hidden="true"></div>
+
+    <script src="https://unpkg.com/lucide@0.462.0"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
