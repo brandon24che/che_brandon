@@ -440,6 +440,7 @@ function initScrollSpy() {
   const sections = ["hero", "about", "skills", "work", "contact"]
     .map((id) => document.getElementById(id))
     .filter(Boolean);
+  let raf = 0;
 
   const spy = () => {
     const y = window.scrollY + 120;
@@ -452,7 +453,16 @@ function initScrollSpy() {
     });
   };
 
-  window.addEventListener("scroll", spy, { passive: true });
+  const onScroll = () => {
+    if (!raf) {
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        spy();
+      });
+    }
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
   spy();
 }
 
@@ -581,15 +591,32 @@ function initProjectTilt() {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
   document.querySelectorAll(".project-card").forEach((card) => {
-    card.addEventListener("pointermove", (event) => {
+    let raf = 0;
+    let pointer = null;
+
+    const render = () => {
+      raf = 0;
+      if (!pointer) return;
+
       const box = card.getBoundingClientRect();
-      const x = (event.clientX - box.left) / box.width;
-      const y = (event.clientY - box.top) / box.height;
+      const x = (pointer.x - box.left) / box.width;
+      const y = (pointer.y - box.top) / box.height;
+      pointer = null;
       card.style.setProperty("--mx", `${x * 100}%`);
       card.style.setProperty("--my", `${y * 100}%`);
       card.style.transform = `rotateY(${(x - 0.5) * 12}deg) rotateX(${(0.5 - y) * 9}deg) translateY(-4px)`;
-    });
+    };
+
+    card.addEventListener(
+      "pointermove",
+      (event) => {
+        pointer = { x: event.clientX, y: event.clientY };
+        if (!raf) raf = requestAnimationFrame(render);
+      },
+      { passive: true }
+    );
     card.addEventListener("pointerleave", () => {
+      pointer = null;
       card.style.transform = "";
     });
   });
@@ -711,7 +738,8 @@ function initHeroCanvas() {
 
   const ctx = canvas.getContext("2d");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const lowPower = window.matchMedia("(pointer: coarse)").matches || navigator.connection?.saveData === true;
+  const dpr = Math.min(window.devicePixelRatio || 1, lowPower ? 1.5 : 2);
   const LINK_DIST = 110;
   const MOUSE_DIST = 170;
 
@@ -719,7 +747,11 @@ function initHeroCanvas() {
   let height = 0;
   let particles = [];
   let raf = 0;
+  let resizeRaf = 0;
+  let pointerRaf = 0;
+  let lastFrame = 0;
   let inView = false;
+  let pointer = null;
   const mouse = { x: -9999, y: -9999 };
   const accent = { r: 201, g: 242, b: 74 };
 
@@ -743,7 +775,10 @@ function initHeroCanvas() {
   };
 
   const seed = () => {
-    const count = Math.round(Math.min(90, Math.max(40, (width * height) / 15000)));
+    const minParticles = lowPower ? 24 : 32;
+    const maxParticles = lowPower ? 36 : 64;
+    const targetParticles = (width * height) / (lowPower ? 26000 : 22000);
+    const count = Math.round(Math.min(maxParticles, Math.max(minParticles, targetParticles)));
     particles = Array.from({ length: count }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
@@ -764,6 +799,15 @@ function initHeroCanvas() {
     if (reduceMotion) draw();
   };
 
+  const scheduleResize = () => {
+    if (!resizeRaf) {
+      resizeRaf = requestAnimationFrame(() => {
+        resizeRaf = 0;
+        resize();
+      });
+    }
+  };
+
   const draw = () => {
     ctx.clearRect(0, 0, width, height);
     const { r, g, b } = accent;
@@ -779,6 +823,7 @@ function initHeroCanvas() {
     }
 
     ctx.lineWidth = 1;
+    ctx.fillStyle = `rgba(${r},${g},${b},0.75)`;
     for (let i = 0; i < particles.length; i++) {
       const a = particles[i];
       for (let j = i + 1; j < particles.length; j++) {
@@ -810,7 +855,6 @@ function initHeroCanvas() {
         }
       }
 
-      ctx.fillStyle = `rgba(${r},${g},${b},0.75)`;
       ctx.beginPath();
       ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
       ctx.fill();
@@ -820,12 +864,15 @@ function initHeroCanvas() {
   if (reduceMotion) {
     readAccent();
     resize();
-    window.addEventListener("resize", resize);
+    window.addEventListener("resize", scheduleResize);
     return;
   }
 
-  const loop = () => {
-    draw();
+  const loop = (now) => {
+    if (!lowPower || now - lastFrame >= 32) {
+      draw();
+      lastFrame = now;
+    }
     raf = requestAnimationFrame(loop);
   };
   const start = () => {
@@ -841,13 +888,22 @@ function initHeroCanvas() {
   hero.addEventListener(
     "pointermove",
     (event) => {
-      const rect = canvas.getBoundingClientRect();
-      mouse.x = event.clientX - rect.left;
-      mouse.y = event.clientY - rect.top;
+      pointer = { x: event.clientX, y: event.clientY };
+      if (!pointerRaf) {
+        pointerRaf = requestAnimationFrame(() => {
+          pointerRaf = 0;
+          if (!pointer) return;
+          const rect = canvas.getBoundingClientRect();
+          mouse.x = pointer.x - rect.left;
+          mouse.y = pointer.y - rect.top;
+          pointer = null;
+        });
+      }
     },
     { passive: true }
   );
   hero.addEventListener("pointerleave", () => {
+    pointer = null;
     mouse.x = -9999;
     mouse.y = -9999;
   });
@@ -882,7 +938,7 @@ function initHeroCanvas() {
   }
 
   readAccent();
-  window.addEventListener("resize", resize);
+  window.addEventListener("resize", scheduleResize);
   resize();
 }
 
@@ -915,6 +971,20 @@ function initCursor() {
     ringPos.x += (target.x - ringPos.x) * 0.18;
     ringPos.y += (target.y - ringPos.y) * 0.18;
     apply();
+
+    const settled =
+      Math.abs(target.x - dotPos.x) < 0.1 &&
+      Math.abs(target.y - dotPos.y) < 0.1 &&
+      Math.abs(target.x - ringPos.x) < 0.1 &&
+      Math.abs(target.y - ringPos.y) < 0.1;
+    if (settled) {
+      dotPos.x = ringPos.x = target.x;
+      dotPos.y = ringPos.y = target.y;
+      apply();
+      raf = 0;
+      return;
+    }
+
     raf = requestAnimationFrame(tick);
   };
 
@@ -955,7 +1025,7 @@ function initMagnetic() {
   document.querySelectorAll(".btn, .filter-btn, .skill-tab, .whatsapp-btn, .socials a, .platform-btn").forEach((el) => {
     el.classList.add("is-magnetic");
 
-    const state = { x: 0, y: 0, tx: 0, ty: 0, raf: 0 };
+    const state = { x: 0, y: 0, tx: 0, ty: 0, raf: 0, rect: null };
     const strength = 0.32;
 
     const apply = () => {
@@ -980,19 +1050,20 @@ function initMagnetic() {
       if (!state.raf) state.raf = requestAnimationFrame(tick);
     };
 
+    const updateTarget = (event) => {
+      const rect = state.rect;
+      state.tx = (event.clientX - (rect.left + rect.width / 2)) * strength;
+      state.ty = (event.clientY - (rect.top + rect.height / 2)) * strength;
+      start();
+    };
+
     el.addEventListener("pointerenter", (event) => {
-      const rect = el.getBoundingClientRect();
-      state.tx = (event.clientX - (rect.left + rect.width / 2)) * strength;
-      state.ty = (event.clientY - (rect.top + rect.height / 2)) * strength;
-      start();
+      state.rect = el.getBoundingClientRect();
+      updateTarget(event);
     });
-    el.addEventListener("pointermove", (event) => {
-      const rect = el.getBoundingClientRect();
-      state.tx = (event.clientX - (rect.left + rect.width / 2)) * strength;
-      state.ty = (event.clientY - (rect.top + rect.height / 2)) * strength;
-      start();
-    });
+    el.addEventListener("pointermove", updateTarget, { passive: true });
     el.addEventListener("pointerleave", () => {
+      state.rect = null;
       state.tx = 0;
       state.ty = 0;
       start();

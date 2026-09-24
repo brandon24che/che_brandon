@@ -152,6 +152,11 @@ p {
   letter-spacing: 0;
 }
 
+html[data-theme="dark"] .logo-mark {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
 .logo-text {
   font-family: var(--font-display);
 }
