@@ -437,13 +437,13 @@ function initReveal() {
 /* ---------- Active nav on scroll ---------- */
 function initScrollSpy() {
   const links = document.querySelectorAll(".nav-desktop a");
-  const sections = ["about", "skills", "work", "contact"]
+  const sections = ["hero", "about", "skills", "work", "contact"]
     .map((id) => document.getElementById(id))
     .filter(Boolean);
 
   const spy = () => {
     const y = window.scrollY + 120;
-    let current = "";
+    let current = "hero";
     sections.forEach((sec) => {
       if (y >= sec.offsetTop) current = sec.id;
     });
