@@ -54,8 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initForm();
   initModal();
   initAboutCounters();
-  initProjectTilt();
-  initCursor();
+  initImageViewer();
   initMagnetic();
 
   const year = document.getElementById("year");
@@ -585,40 +584,43 @@ function initAboutCounters() {
   cards.forEach((el) => io.observe(el));
 }
 
-/* ---------- Work card tilt ---------- */
-function initProjectTilt() {
-  if (window.matchMedia("(pointer: coarse)").matches) return;
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+/* ---------- Full image viewer ---------- */
+function initImageViewer() {
+  const modal = document.getElementById("image-modal");
+  const image = document.getElementById("image-modal-image");
+  const caption = document.getElementById("image-modal-caption");
+  if (!modal || !image || !caption) return;
 
-  document.querySelectorAll(".project-card").forEach((card) => {
-    let raf = 0;
-    let pointer = null;
-
-    const render = () => {
-      raf = 0;
-      if (!pointer) return;
-
-      const box = card.getBoundingClientRect();
-      const x = (pointer.x - box.left) / box.width;
-      const y = (pointer.y - box.top) / box.height;
-      pointer = null;
-      card.style.setProperty("--mx", `${x * 100}%`);
-      card.style.setProperty("--my", `${y * 100}%`);
-      card.style.transform = `rotateY(${(x - 0.5) * 12}deg) rotateX(${(0.5 - y) * 9}deg) translateY(-4px)`;
-    };
-
-    card.addEventListener(
-      "pointermove",
-      (event) => {
-        pointer = { x: event.clientX, y: event.clientY };
-        if (!raf) raf = requestAnimationFrame(render);
-      },
-      { passive: true }
+  const open = (source) => {
+    const fullSource = (source.currentSrc || source.src).replace(
+      "fit=crop&w=900&q=75",
+      "fit=max&w=1800&q=85"
     );
-    card.addEventListener("pointerleave", () => {
-      pointer = null;
-      card.style.transform = "";
+    image.src = fullSource;
+    image.alt = source.alt;
+    caption.textContent = source.alt;
+    modal.showModal();
+  };
+
+  document.querySelectorAll(".project-media").forEach((media) => {
+    const source = media.querySelector("img");
+    if (!source) return;
+
+    media.tabIndex = 0;
+    media.setAttribute("role", "button");
+    media.setAttribute("aria-label", `View full image: ${source.alt}`);
+    media.addEventListener("click", () => open(source));
+    media.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        open(source);
+      }
     });
+  });
+
+  modal.querySelector("[data-close-image-modal]").addEventListener("click", () => modal.close());
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) modal.close();
   });
 }
 
@@ -940,81 +942,6 @@ function initHeroCanvas() {
   readAccent();
   window.addEventListener("resize", scheduleResize);
   resize();
-}
-
-/* ---------- Custom cursor ---------- */
-function initCursor() {
-  if (window.matchMedia("(pointer: coarse)").matches) return;
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-  const dot = document.querySelector("[data-cursor-dot]");
-  const ring = document.querySelector("[data-cursor-ring]");
-  if (!dot || !ring) return;
-
-  const root = document.documentElement;
-  root.classList.add("has-cursor");
-
-  const target = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-  const dotPos = { x: target.x, y: target.y };
-  const ringPos = { x: target.x, y: target.y };
-  let visible = false;
-  let raf = 0;
-
-  const apply = () => {
-    dot.style.transform = `translate3d(${dotPos.x}px, ${dotPos.y}px, 0)`;
-    ring.style.transform = `translate3d(${ringPos.x}px, ${ringPos.y}px, 0)`;
-  };
-
-  const tick = () => {
-    dotPos.x += (target.x - dotPos.x) * 0.4;
-    dotPos.y += (target.y - dotPos.y) * 0.4;
-    ringPos.x += (target.x - ringPos.x) * 0.18;
-    ringPos.y += (target.y - ringPos.y) * 0.18;
-    apply();
-
-    const settled =
-      Math.abs(target.x - dotPos.x) < 0.1 &&
-      Math.abs(target.y - dotPos.y) < 0.1 &&
-      Math.abs(target.x - ringPos.x) < 0.1 &&
-      Math.abs(target.y - ringPos.y) < 0.1;
-    if (settled) {
-      dotPos.x = ringPos.x = target.x;
-      dotPos.y = ringPos.y = target.y;
-      apply();
-      raf = 0;
-      return;
-    }
-
-    raf = requestAnimationFrame(tick);
-  };
-
-  window.addEventListener(
-    "pointermove",
-    (event) => {
-      target.x = event.clientX;
-      target.y = event.clientY;
-      if (!visible) {
-        visible = true;
-        dotPos.x = ringPos.x = target.x;
-        dotPos.y = ringPos.y = target.y;
-        apply();
-        root.classList.add("has-cursor-visible");
-      }
-      if (!raf) raf = requestAnimationFrame(tick);
-    },
-    { passive: true }
-  );
-
-  const HOVERABLE = "a, button, input, textarea, select, .project-card, .orbit-chip";
-  document.addEventListener("pointerover", (event) => {
-    root.classList.toggle("has-cursor-hover", Boolean(event.target.closest(HOVERABLE)));
-  });
-  window.addEventListener("pointerdown", () => root.classList.add("has-cursor-down"));
-  window.addEventListener("pointerup", () => root.classList.remove("has-cursor-down"));
-  root.addEventListener("mouseleave", () => root.classList.remove("has-cursor-visible"));
-  root.addEventListener("mouseenter", () => {
-    if (visible) root.classList.add("has-cursor-visible");
-  });
 }
 
 /* ---------- Magnetic hover on buttons ---------- */

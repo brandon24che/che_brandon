@@ -107,7 +107,7 @@
               </span>
             </h1>
             <p class="lede">
-              I’m Avery Cole — a multidisciplinary creative who designs, builds, and ships digital work end to end. If you’re hiring, you get a full-time teammate who can own an interface, a campaign, or a brand system from kickoff to launch. If you’re a client, you get a freelancer who briefs, executes, and reports back in numbers.
+              I’m Che Brandon — a multidisciplinary creative who designs, builds, and ships digital work end to end. If you’re hiring, you get a full-time teammate who can own an interface, a campaign, or a brand system from kickoff to launch. If you’re a client, you get a freelancer who briefs, executes, and reports back in numbers.
             </p>
             <div class="hero-cta">
               <a class="btn btn-primary" href="#work">View My Work</a>
@@ -177,7 +177,7 @@
             </article>
 
             <div class="about-orbit reveal" data-delay="80" aria-hidden="true">
-              <div class="orbit-core">AC</div>
+              <div class="orbit-core">CB</div>
               <span class="orbit-item" style="--a: 0">Web</span>
               <span class="orbit-item" style="--a: 1">Brand</span>
               <span class="orbit-item" style="--a: 2">Motion</span>
@@ -353,7 +353,6 @@
             <article class="project-card reveal" data-category="web">
               <div class="project-media">
                 <span class="project-index">01</span>
-                <span class="project-shine" aria-hidden="true"></span>
                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=75" alt="Maison Atelier ecommerce interface" loading="lazy" decoding="async" />
               </div>
               <div class="project-body">
@@ -373,7 +372,6 @@
             <article class="project-card reveal" data-category="graphic">
               <div class="project-media">
                 <span class="project-index">02</span>
-                <span class="project-shine" aria-hidden="true"></span>
                 <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=900&q=75" alt="Northline brand identity system" loading="lazy" decoding="async" />
               </div>
               <div class="project-body">
@@ -393,7 +391,6 @@
             <article class="project-card reveal" data-category="motion">
               <div class="project-media">
                 <span class="project-index">03</span>
-                <span class="project-shine" aria-hidden="true"></span>
                 <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=900&q=75" alt="Kinetic type still from Orbit launch film" loading="lazy" decoding="async" />
               </div>
               <div class="project-body">
@@ -414,7 +411,6 @@
             <article class="project-card reveal" data-category="marketing">
               <div class="project-media">
                 <span class="project-index">04</span>
-                <span class="project-shine" aria-hidden="true"></span>
                 <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=75" alt="Analytics dashboard for growth campaign" loading="lazy" decoding="async" />
               </div>
               <div class="project-body">
@@ -431,7 +427,6 @@
             <article class="project-card reveal" data-category="web">
               <div class="project-media">
                 <span class="project-index">05</span>
-                <span class="project-shine" aria-hidden="true"></span>
                 <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=900&q=75" alt="Editorial website design on laptop" loading="lazy" decoding="async" />
               </div>
               <div class="project-body">
@@ -451,7 +446,6 @@
             <article class="project-card reveal" data-category="graphic">
               <div class="project-media">
                 <span class="project-index">06</span>
-                <span class="project-shine" aria-hidden="true"></span>
                 <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=900&q=75" alt="Packaging design still life" loading="lazy" decoding="async" />
               </div>
               <div class="project-body">
@@ -561,8 +555,15 @@
       </div>
     </dialog>
 
-    <div class="cursor-dot" data-cursor-dot aria-hidden="true"></div>
-    <div class="cursor-ring" data-cursor-ring aria-hidden="true"></div>
+    <dialog class="image-modal" id="image-modal" aria-labelledby="image-modal-caption">
+      <div class="image-modal-inner">
+        <button class="image-modal-close" type="button" aria-label="Close full image" data-close-image-modal>
+          <i data-lucide="x"></i>
+        </button>
+        <img id="image-modal-image" src="" alt="" />
+        <p id="image-modal-caption"></p>
+      </div>
+    </dialog>
 
     <script src="https://unpkg.com/lucide@0.462.0"></script>
     <script src="js/main.js"></script>
