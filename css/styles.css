@@ -1062,7 +1062,7 @@ html[data-theme="light"] .toggle-thumb {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 8px;
+  margin-top: 14px;
 }
 
 .about-pills span {
@@ -1495,22 +1495,40 @@ html[data-theme="light"] .toggle-thumb {
 
 .about-availability {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 4px;
-  padding: 10px 14px;
-  border: 1px dashed color-mix(in srgb, var(--accent) 40%, var(--line));
-  border-radius: 999px;
-  font-size: 13px;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 18px;
+  padding: 14px 16px;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--line));
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  font-size: 13.5px;
+  line-height: 1.6;
   color: var(--muted);
-  width: fit-content;
 }
 
-.about-availability svg {
-  width: 16px;
-  height: 16px;
+.availability-dot {
+  position: relative;
   flex-shrink: 0;
-  color: var(--accent);
+  width: 9px;
+  height: 9px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: #2f9e5f;
+}
+
+.availability-dot::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid #2f9e5f;
+  animation: availabilityPulse 2.2s ease-out infinite;
+}
+
+@keyframes availabilityPulse {
+  from { transform: scale(0.55); opacity: 0.8; }
+  to { transform: scale(1.9); opacity: 0; }
 }
 
 .about-availability strong {
@@ -1892,6 +1910,7 @@ html[data-theme="light"] .toggle-thumb {
   .ripple-char,
   .about-aurora,
   .about-pills span,
+  .availability-dot::after,
   .orbit-item,
   .orbit-core,
   .orbit-spark,
