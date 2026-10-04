@@ -562,6 +562,34 @@
       </div>
     </dialog>
 
+    <!-- Chatbot -->
+    <div class="chatbot" id="chatbot">
+      <section class="chatbot-panel" role="dialog" aria-label="Chat with Che's assistant" hidden>
+        <header class="chatbot-head">
+          <span class="chatbot-avatar" aria-hidden="true">CB</span>
+          <div class="chatbot-id">
+            <strong>Che’s Assistant</strong>
+            <span class="chatbot-status"><span class="chatbot-status-dot" aria-hidden="true"></span>Online — replies instantly</span>
+          </div>
+          <button class="chatbot-close" type="button" aria-label="Close chat" data-chat-close>
+            <i data-lucide="x"></i>
+          </button>
+        </header>
+        <div class="chatbot-log" id="chatbot-log" aria-live="polite"></div>
+        <div class="chatbot-chips" id="chatbot-chips"></div>
+        <form class="chatbot-form" id="chatbot-form">
+          <input id="chatbot-input" type="text" placeholder="Ask about skills, projects, availability…" autocomplete="off" aria-label="Ask a question" />
+          <button class="chatbot-send" type="submit" aria-label="Send message">
+            <i data-lucide="send"></i>
+          </button>
+        </form>
+      </section>
+      <button class="chatbot-toggle" type="button" aria-label="Open chat" aria-expanded="false" data-chat-toggle>
+        <i data-lucide="message-circle" class="chat-icon-open"></i>
+        <i data-lucide="x" class="chat-icon-close"></i>
+      </button>
+    </div>
+
     <script src="https://unpkg.com/lucide@0.462.0"></script>
     <script src="js/main.js"></script>
   </body>

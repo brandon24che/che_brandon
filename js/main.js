@@ -37,6 +37,176 @@ const PROJECTS = {
   },
 };
 
+/* Chatbot knowledge base — answers only from this site's own content */
+const CHAT_INTRO =
+  "Hey — I’m Che’s portfolio assistant. I know this site inside out: skills, projects, experience, availability, and how to get in touch. What can I help with?";
+
+const CHAT_FALLBACK =
+  "I stick to what’s on this site — Che’s skills, projects, experience, availability, and contact details. Try one of the suggestions below, or ask something like “What was the Lumen Series about?”";
+
+const CHAT_KB = [
+  {
+    keys: ["maison", "maison atelier", "storefront", "ecommerce", "e commerce", "online store", "shop"],
+    reply:
+      "<strong>Maison Atelier</strong> — web development. A headless commerce experience for a luxury home label: custom product storytelling, restrained motion, and a <strong>98 Lighthouse</strong> performance score in production.",
+  },
+  {
+    keys: ["northline", "brand book", "climate tech", "climate"],
+    reply:
+      "<strong>Northline</strong> — graphic design. Identity, typography, and a <strong>48-page brand book</strong> for a climate-tech studio, built to scale from investor decks to wayfinding without losing warmth.",
+  },
+  {
+    keys: ["orbit", "launch film", "product film", "kinetic type"],
+    reply:
+      "<strong>Orbit — Launch</strong> — motion design. A <strong>45-second product film</strong> with a reusable kinetic type system. Cutdowns shipped for paid social, the website hero, and a live keynote.",
+  },
+  {
+    keys: ["lumen", "acquisition", "roas"],
+    reply:
+      "<strong>Lumen Series</strong> — digital marketing. Always-on acquisition: creative testing, landing-page variants, and analytics instrumentation that delivered a <strong>3.4× ROAS</strong> over two quarters.",
+  },
+  {
+    keys: ["atelier journal", "journal", "magazine", "editorial"],
+    reply:
+      "<strong>Atelier Journal</strong> — web development. An editorial web magazine with chaptered scroll, custom CMS fields, and a reading experience closer to print than a blog.",
+  },
+  {
+    keys: ["solace", "botanics", "packaging", "sku", "skus"],
+    reply:
+      "<strong>Solace Botanics</strong> — graphic design. Packaging architecture and campaign stills for an <strong>11-SKU wellness launch</strong>: quiet materials, strong type, shelf presence without shouting.",
+  },
+  {
+    keys: [
+      "who are you", "who is che", "who is this", "who is avery", "avery cole", "about che", "about you",
+      "about", "bio", "background", "story", "introduce", "yourself", "who made this", "who built this",
+    ],
+    reply:
+      "<strong>Che Brandon</strong> is a creative technologist — web developer, graphic designer, motion designer, and digital marketer in one. The short version: started in art direction, moved into interfaces, stayed for the overlap where type, code, and motion agree. Full story in <a href='#about'>About</a>.",
+  },
+  {
+    keys: ["project", "projects", "portfolio", "case study", "case studies", "selected work", "your work", "clients", "client", "work"],
+    reply:
+      "Six projects are featured:<br>• <strong>Maison Atelier</strong> — headless e-commerce, 98 Lighthouse<br>• <strong>Northline</strong> — identity system + 48-page brand book<br>• <strong>Orbit — Launch</strong> — 45s product film, kinetic type<br>• <strong>Lumen Series</strong> — acquisition system, 3.4× ROAS<br>• <strong>Atelier Journal</strong> — editorial web magazine, custom CMS<br>• <strong>Solace Botanics</strong> — packaging for an 11-SKU wellness launch<br>Browse them in <a href='#work'>Selected Work</a> — or ask about any one by name.",
+  },
+  {
+    keys: [
+      "web development", "web developer", "development", "developer", "frontend", "front end", "backend",
+      "back end", "full stack", "fullstack", "coding", "programming", "html", "css", "js", "javascript",
+      "php", "react", "node", "firebase", "supabase", "mongodb", "database", "cms", "tech stack", "stack",
+      "api", "website", "websites", "web app", "web design",
+    ],
+    reply:
+      "Development is the core practice: performant, accessible front-ends and full-stack builds — <strong>HTML/CSS/JS, PHP, React, Node.js, Firebase, Supabase, MongoDB</strong>, headless CMS, responsive systems, and technical SEO. Work averages a <strong>98 Lighthouse</strong> score. Recent build: <em>Maison Atelier</em>, a headless storefront for a luxury home label.",
+  },
+  {
+    keys: [
+      "graphic design", "graphic designer", "brand identity", "logo", "logos", "typography", "art direction",
+      "flyer", "poster", "print", "video editing", "edit", "editing", "figma", "identity", "designer", "design",
+    ],
+    reply:
+      "Graphic design here means identity, layout, and visual systems — quiet luxury with editorial precision: <strong>brand identity, art direction, typography, flyer & poster design, video editing, print & digital</strong>, built in Figma. Example: <em>Northline</em>, a full identity system with a 48-page brand book.",
+  },
+  {
+    keys: [
+      "motion design", "motion", "animation", "animate", "2d", "3d", "after effects", "cinema 4d", "c4d",
+      "lottie", "kinetic", "video", "film", "storyboard", "sound design",
+    ],
+    reply:
+      "Motion that clarifies, not clutters: <strong>kinetic type, 2D & 3D animation, flyer animation, launch films, Lottie, storyboards, sound design</strong> — mainly After Effects and Cinema 4D. Example: <em>Orbit — Launch</em>, a 45-second product film cut down for web, social, and a live keynote.",
+  },
+  {
+    keys: [
+      "digital marketing", "marketing", "seo", "paid social", "ads", "advertising", "campaign", "campaigns",
+      "growth", "analytics", "email marketing", "email", "conversion", "landing page", "funnel",
+    ],
+    reply:
+      "Marketing with a creative backbone: <strong>paid social, SEO & content, email marketing, analytics, and landing pages / web applications</strong> — measured on real outcomes, not vanity metrics. Example: <em>Lumen Series</em>, an always-on acquisition system with a <strong>3.4× ROAS</strong>.",
+  },
+  {
+    keys: [
+      "services", "what do you do", "what can you do", "what do you offer", "offer", "specialize",
+      "specialise", "expertise", "disciplines", "craft",
+    ],
+    reply:
+      "Che works across four practices:<br>• <strong>Web development</strong> — sites, product UI, full-stack apps<br>• <strong>Graphic design</strong> — identity, typography, flyers, posters, video editing<br>• <strong>Motion design</strong> — kinetic type, 2D/3D animation, launch films<br>• <strong>Digital marketing</strong> — SEO, paid social, email, landing pages<br>One person, one standard of craft. Ask about any of them.",
+  },
+  {
+    keys: ["process", "how do you work", "how you work", "workflow", "start a project", "get started", "onboarding", "timeline", "how long does it take"],
+    reply:
+      "Simple process: you send a brief (job spec, project, or half-formed idea), Che replies within two business days, then it’s scope → kickoff → build → ship, with clean documentation and handoff at the end. Start on the <a href='#contact'>contact form</a>.",
+  },
+  {
+    keys: ["skills", "skill", "tools", "tool", "software", "toolkit", "what do you use", "programs"],
+    reply:
+      "Day-to-day toolkit: <strong>Figma</strong> for design · <strong>After Effects & Cinema 4D</strong> for motion · <strong>HTML/CSS/JS, PHP, React, Node.js</strong> for builds · <strong>Firebase, Supabase, MongoDB</strong> on the back end · analytics and SEO tooling for growth work.",
+  },
+  {
+    keys: ["experience", "years", "how long", "senior", "junior", "career", "worked", "practice", "qualified"],
+    reply:
+      "Che has <strong>2+ years of hands-on practice</strong> across the four crafts and <strong>10+ completed projects</strong> — brand systems, storefronts, launch films, and growth campaigns. The route in: art direction → interfaces. More in <a href='#about'>About</a>.",
+  },
+  {
+    keys: ["stats", "statistics", "numbers", "achievements", "metrics", "results", "track record"],
+    reply:
+      "Quick numbers: <strong>2+ years</strong> in practice · <strong>10+ projects</strong> completed · <strong>40 brand systems</strong> · <strong>98 avg. Lighthouse</strong> score · <strong>3.4× ROAS</strong> on the Lumen Series campaign.",
+  },
+  {
+    keys: ["lighthouse", "performance", "speed", "fast", "optimization", "optimisation", "page speed", "accessibility", "a11y", "responsive"],
+    reply:
+      "Performance is treated as craft, not a checkbox: Che’s builds average a <strong>98 Lighthouse</strong> score — <em>Maison Atelier</em> shipped a 98 in production — with responsive systems, accessibility, and technical SEO baked in.",
+  },
+  {
+    keys: [
+      "available", "availability", "hire", "hiring", "open to", "full time", "full-time", "freelance",
+      "freelancer", "remote", "vacancy", "job", "jobs", "role", "position", "opportunity", "engagement",
+      "collaborate", "work together", "work with you",
+    ],
+    reply:
+      "Che is currently open to <strong>full-time in-house roles</strong> and <strong>select freelance projects</strong> — remote-first, happy to hybrid. Typical reply time is <strong>two business days</strong>. If you’re hiring, send a job spec via the <a href='#contact'>contact form</a>.",
+  },
+  {
+    keys: ["contact", "email", "reach", "get in touch", "touch", "message", "whatsapp", "phone", "call", "dm"],
+    reply:
+      "Easiest routes:<br>• <strong>Email</strong> — hello@averycole.studio<br>• <strong>WhatsApp</strong> — button in the <a href='#contact'>contact section</a><br>• <strong>Form</strong> — for job specs or project briefs<br>Che typically replies within two business days.",
+  },
+  {
+    keys: ["resume", "cv", "curriculum", "download"],
+    reply: "Grab the PDF here: <a href='assets/avery-cole-resume.pdf' download>Download résumé</a>. It covers experience, skills, and selected work.",
+  },
+  {
+    keys: ["location", "where", "based", "live", "city", "country", "timezone", "time zone", "new york", "relocate", "onsite", "on site", "hybrid"],
+    reply:
+      "Che is based in <strong>New York</strong> and works <strong>remote worldwide</strong> — remote-first, happy to hybrid for the right team.",
+  },
+  {
+    keys: ["price", "pricing", "cost", "rate", "rates", "budget", "quote", "how much", "charge", "salary", "expensive", "affordable"],
+    reply:
+      "Rates aren’t listed on the site — they depend on scope, timeline, and engagement type. Send a short brief (what you need, when, rough budget) through the <a href='#contact'>contact form</a> and Che will get back to you within two business days.",
+  },
+  {
+    keys: ["social", "socials", "social media", "github", "linkedin", "behance", "dribbble", "twitter", "instagram", "pinterest", "youtube", "follow"],
+    reply:
+      "Che is on <strong>GitHub, LinkedIn, Behance, Dribbble, X, Instagram, Pinterest, and YouTube</strong> — all linked in the site footer. For anything direct, the <a href='#contact'>contact section</a> is fastest.",
+  },
+  {
+    keys: ["bot", "robot", "human", "ai", "real person", "are you a bot", "are you human", "are you real", "chatbot", "artificial intelligence"],
+    reply:
+      "Fair question — I’m a lightweight assistant that lives on this page, answering from the portfolio’s own content. For the real Che, use the <a href='#contact'>contact form</a> or email hello@averycole.studio.",
+  },
+  {
+    keys: ["thanks", "thank you", "thx", "appreciated", "appreciate", "great", "awesome", "perfect", "nice", "cool", "helpful"],
+    reply: "Anytime. Anything else — skills, a specific project, availability?",
+  },
+  {
+    keys: ["bye", "goodbye", "see you", "see ya", "later", "good night", "cya", "cheers"],
+    reply: "Thanks for stopping by. If anything comes up, the <a href='#contact'>contact form</a> is one click away. Talk soon!",
+  },
+  {
+    keys: ["hi", "hello", "hey", "yo", "sup", "howdy", "hola", "good morning", "good afternoon", "good evening", "greetings"],
+    reply: "Hey! Ask me anything about Che — skills, projects, experience, availability, or how to get in touch.",
+  },
+];
+
 document.addEventListener("DOMContentLoaded", () => {
   if (window.lucide) lucide.createIcons();
 
@@ -56,6 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initAboutCounters();
   initImageViewer();
   initMagnetic();
+  initChatbot();
 
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
@@ -621,6 +792,155 @@ function initImageViewer() {
   modal.querySelector("[data-close-image-modal]").addEventListener("click", () => modal.close());
   modal.addEventListener("click", (event) => {
     if (event.target === modal) modal.close();
+  });
+}
+
+/* ---------- Chatbot ---------- */
+function initChatbot() {
+  const root = document.getElementById("chatbot");
+  if (!root) return;
+
+  const panel = root.querySelector(".chatbot-panel");
+  const log = document.getElementById("chatbot-log");
+  const chipsWrap = document.getElementById("chatbot-chips");
+  const form = document.getElementById("chatbot-form");
+  const input = document.getElementById("chatbot-input");
+  const toggle = root.querySelector("[data-chat-toggle]");
+  if (!panel || !log || !chipsWrap || !form || !input || !toggle) return;
+
+  const SUGGESTIONS = ["What do you do?", "Projects", "Skills & tools", "Availability", "Contact"];
+  const GREET = "__greet__";
+  const keyCache = new Map();
+  let greeted = false;
+  let busy = false;
+  const queue = [];
+
+  const keyRegex = (key) => {
+    if (!keyCache.has(key)) {
+      const escaped = key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/\s+/g, "\\s+");
+      keyCache.set(key, new RegExp(`\\b${escaped}(s|es)?\\b`, "i"));
+    }
+    return keyCache.get(key);
+  };
+
+  const normalize = (text) =>
+    text.toLowerCase().replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
+
+  const matchAnswer = (question) => {
+    const q = normalize(question);
+    let best = null;
+    let bestScore = 0;
+    for (const entry of CHAT_KB) {
+      let score = 0;
+      for (const key of entry.keys) {
+        if (keyRegex(key).test(q)) score += key.includes(" ") ? 3 : 1;
+      }
+      if (score > bestScore) {
+        bestScore = score;
+        best = entry;
+      }
+    }
+    return best ? best.reply : CHAT_FALLBACK;
+  };
+
+  const scroll = () => {
+    log.scrollTop = log.scrollHeight;
+  };
+
+  const addMessage = (content, who) => {
+    const el = document.createElement("div");
+    el.className = `chat-msg is-${who}`;
+    if (who === "user") el.textContent = content;
+    else el.innerHTML = content;
+    log.appendChild(el);
+    scroll();
+    return el;
+  };
+
+  const addTyping = () => {
+    const el = document.createElement("div");
+    el.className = "chat-msg is-bot chat-typing";
+    el.setAttribute("aria-label", "Assistant is typing");
+    el.innerHTML = "<span></span><span></span><span></span>";
+    log.appendChild(el);
+    scroll();
+    return el;
+  };
+
+  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  const reply = async (question) => {
+    const typing = addTyping();
+    await wait(question === GREET ? 700 : 500 + Math.random() * 400);
+    typing.remove();
+    addMessage(question === GREET ? CHAT_INTRO : matchAnswer(question), "bot");
+  };
+
+  const drain = async () => {
+    if (busy) return;
+    busy = true;
+    while (queue.length) await reply(queue.shift());
+    busy = false;
+  };
+
+  const ask = (question) => {
+    const text = question.trim();
+    if (!text) return;
+    addMessage(text, "user");
+    queue.push(text);
+    drain();
+  };
+
+  const open = () => {
+    root.classList.add("is-open");
+    panel.hidden = false;
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", "Close chat");
+    if (!greeted) {
+      greeted = true;
+      queue.push(GREET);
+      drain();
+    }
+    if (window.matchMedia("(pointer: fine)").matches) input.focus({ preventScroll: true });
+    scroll();
+  };
+
+  const close = () => {
+    root.classList.remove("is-open");
+    panel.hidden = true;
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open chat");
+    toggle.focus({ preventScroll: true });
+  };
+
+  toggle.addEventListener("click", () => {
+    root.classList.contains("is-open") ? close() : open();
+  });
+
+  root.querySelector("[data-chat-close]")?.addEventListener("click", close);
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && root.classList.contains("is-open")) close();
+  });
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    ask(input.value);
+    input.value = "";
+  });
+
+  log.addEventListener("click", (event) => {
+    const link = event.target.closest("a[href^='#']");
+    if (link && root.classList.contains("is-open")) close();
+  });
+
+  SUGGESTIONS.forEach((label) => {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "chat-chip";
+    chip.textContent = label;
+    chip.addEventListener("click", () => ask(label));
+    chipsWrap.appendChild(chip);
   });
 }
 
