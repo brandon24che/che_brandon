@@ -8,32 +8,32 @@ const PROJECTS = {
   maison: {
     tag: "Web development",
     title: "Maison Atelier",
-    body: "A headless commerce experience for a luxury home label. Custom product storytelling, restrained motion, and a 98 Lighthouse performance score on production.",
+    body: "A custom online store for a luxury home brand. Smooth product pages, tasteful motion, and a 98 Lighthouse performance score on the live site.",
   },
   northline: {
     tag: "Graphic design",
     title: "Northline",
-    body: "Identity, typography, and a 48-page brand book for a climate-tech studio. Built to scale from investor decks to wayfinding without losing warmth.",
+    body: "Brand identity and typography for a climate-tech studio, plus a 48-page brand book. Designed to work everywhere, from investor presentations to signage.",
   },
   orbit: {
     tag: "Motion design",
     title: "Orbit — Launch",
-    body: "A 45-second product film with a reusable kinetic type system. Cutdowns shipped for paid social, the website hero, and a live keynote.",
+    body: "A 45-second product video with a reusable animated-text system. Shorter versions were made for paid social, the website hero, and a live keynote.",
   },
   lumen: {
     tag: "Digital marketing",
     title: "Lumen Series",
-    body: "Always-on acquisition: creative testing, landing-page variants, and analytics instrumentation that delivered a 3.4× ROAS over two quarters.",
+    body: "An ongoing marketing program: creative testing, landing-page versions, and clear analytics tracking that delivered a 3.4× return on ad spend over two quarters.",
   },
   journal: {
     tag: "Web development",
     title: "Atelier Journal",
-    body: "An editorial web magazine with chaptered scroll, custom CMS fields, and a reading experience that feels closer to print than a blog.",
+    body: "An online magazine with chapters that open as you scroll, custom content fields, and a reading experience that feels closer to print than a blog.",
   },
   solace: {
     tag: "Graphic design",
     title: "Solace Botanics",
-    body: "Packaging architecture and campaign stills for an 11-SKU wellness launch. Quiet materials, strong type, shelf presence without shouting.",
+    body: "Packaging design and campaign photos for an 11-product wellness launch. Simple materials, strong typography, and packaging that stands out on the shelf.",
   },
 };
 
@@ -48,32 +48,32 @@ const CHAT_KB = [
   {
     keys: ["maison", "maison atelier", "storefront", "ecommerce", "e commerce", "online store", "shop"],
     reply:
-      "<strong>Maison Atelier</strong> — web development. A headless commerce experience for a luxury home label: custom product storytelling, restrained motion, and a <strong>98 Lighthouse</strong> performance score in production.",
+      "<strong>Maison Atelier</strong> — web development. A custom online store for a luxury home brand: smooth product pages, tasteful motion, and a <strong>98 Lighthouse</strong> performance score on the live site.",
   },
   {
     keys: ["northline", "brand book", "climate tech", "climate"],
     reply:
-      "<strong>Northline</strong> — graphic design. Identity, typography, and a <strong>48-page brand book</strong> for a climate-tech studio, built to scale from investor decks to wayfinding without losing warmth.",
+      "<strong>Northline</strong> — graphic design. Brand identity, typography, and a <strong>48-page brand book</strong> for a climate-tech studio — designed to work everywhere, from investor presentations to signage.",
   },
   {
     keys: ["orbit", "launch film", "product film", "kinetic type"],
     reply:
-      "<strong>Orbit — Launch</strong> — motion design. A <strong>45-second product film</strong> with a reusable kinetic type system. Cutdowns shipped for paid social, the website hero, and a live keynote.",
+      "<strong>Orbit — Launch</strong> — motion design. A <strong>45-second product video</strong> with a reusable animated-text system. Shorter versions were made for paid social, the website hero, and a live keynote.",
   },
   {
-    keys: ["lumen", "acquisition", "roas"],
+    keys: ["lumen", "acquisition", "roas", "return on ad spend", "ad spend"],
     reply:
-      "<strong>Lumen Series</strong> — digital marketing. Always-on acquisition: creative testing, landing-page variants, and analytics instrumentation that delivered a <strong>3.4× ROAS</strong> over two quarters.",
+      "<strong>Lumen Series</strong> — digital marketing. An ongoing marketing program: creative testing, landing-page versions, and clear analytics tracking that delivered a <strong>3.4× return on ad spend</strong> over two quarters.",
   },
   {
     keys: ["atelier journal", "journal", "magazine", "editorial"],
     reply:
-      "<strong>Atelier Journal</strong> — web development. An editorial web magazine with chaptered scroll, custom CMS fields, and a reading experience closer to print than a blog.",
+      "<strong>Atelier Journal</strong> — web development. An online magazine with chapters that open as you scroll, custom content fields, and a reading experience closer to print than a blog.",
   },
   {
     keys: ["solace", "botanics", "packaging", "sku", "skus"],
     reply:
-      "<strong>Solace Botanics</strong> — graphic design. Packaging architecture and campaign stills for an <strong>11-SKU wellness launch</strong>: quiet materials, strong type, shelf presence without shouting.",
+      "<strong>Solace Botanics</strong> — graphic design. Packaging design and campaign photos for an <strong>11-product wellness launch</strong> — simple materials, strong typography, and packaging that stands out on the shelf.",
   },
   {
     keys: [
@@ -81,12 +81,12 @@ const CHAT_KB = [
       "about", "bio", "background", "story", "introduce", "yourself", "who made this", "who built this",
     ],
     reply:
-      "<strong>Che Brandon</strong> is a creative technologist — web developer, graphic designer, motion designer, and digital marketer in one. The short version: started in art direction, moved into interfaces, stayed for the overlap where type, code, and motion agree. Full story in <a href='#about'>About</a>.",
+      "<strong>Che Brandon</strong> is a web developer, graphic designer, motion designer, and digital marketer in one person. The short version: started in art direction, moved into websites, and stayed for the point where design, code, and motion come together. Full story in <a href='#about'>About</a>.",
   },
   {
     keys: ["project", "projects", "portfolio", "case study", "case studies", "selected work", "your work", "clients", "client", "work"],
     reply:
-      "Six projects are featured:<br>• <strong>Maison Atelier</strong> — headless e-commerce, 98 Lighthouse<br>• <strong>Northline</strong> — identity system + 48-page brand book<br>• <strong>Orbit — Launch</strong> — 45s product film, kinetic type<br>• <strong>Lumen Series</strong> — acquisition system, 3.4× ROAS<br>• <strong>Atelier Journal</strong> — editorial web magazine, custom CMS<br>• <strong>Solace Botanics</strong> — packaging for an 11-SKU wellness launch<br>Browse them in <a href='#work'>Selected Work</a> — or ask about any one by name.",
+      "Six projects are featured:<br>• <strong>Maison Atelier</strong> — custom online store, 98 Lighthouse<br>• <strong>Northline</strong> — brand identity + 48-page brand book<br>• <strong>Orbit — Launch</strong> — 45s product video, animated text<br>• <strong>Lumen Series</strong> — marketing program, 3.4× return on ad spend<br>• <strong>Atelier Journal</strong> — online magazine, custom CMS<br>• <strong>Solace Botanics</strong> — packaging for an 11-product wellness launch<br>Browse them in <a href='#work'>Selected Work</a> — or ask about any one by name.",
   },
   {
     keys: [
@@ -96,7 +96,7 @@ const CHAT_KB = [
       "api", "website", "websites", "web app", "web design",
     ],
     reply:
-      "Development is the core practice: performant, accessible front-ends and full-stack builds — <strong>HTML/CSS/JS, PHP, React, Node.js, Firebase, Supabase, MongoDB</strong>, headless CMS, responsive systems, and technical SEO. Work averages a <strong>98 Lighthouse</strong> score. Recent build: <em>Maison Atelier</em>, a headless storefront for a luxury home label.",
+      "Development is the core skill: fast, easy-to-use websites and full-stack builds — <strong>HTML/CSS/JS, PHP, React, Node.js, Firebase, Supabase, MongoDB</strong>, simple content management (CMS), responsive layouts, and technical SEO. Work averages a <strong>98 Lighthouse</strong> score. Recent build: <em>Maison Atelier</em>, a custom online store for a luxury home brand.",
   },
   {
     keys: [
@@ -104,7 +104,7 @@ const CHAT_KB = [
       "flyer", "poster", "print", "video editing", "edit", "editing", "figma", "identity", "designer", "design",
     ],
     reply:
-      "Graphic design here means identity, layout, and visual systems — quiet luxury with editorial precision: <strong>brand identity, art direction, typography, flyer & poster design, video editing, print & digital</strong>, built in Figma. Example: <em>Northline</em>, a full identity system with a 48-page brand book.",
+      "Graphic design here means brand identity and visual design — clean, premium work: <strong>brand identity, art direction, typography, flyer & poster design, video editing, print & digital</strong>, built in Figma. Example: <em>Northline</em>, a full brand identity with a 48-page brand book.",
   },
   {
     keys: [
@@ -112,7 +112,7 @@ const CHAT_KB = [
       "lottie", "kinetic", "video", "film", "storyboard", "sound design",
     ],
     reply:
-      "Motion that clarifies, not clutters: <strong>kinetic type, 2D & 3D animation, flyer animation, launch films, Lottie, storyboards, sound design</strong> — mainly After Effects and Cinema 4D. Example: <em>Orbit — Launch</em>, a 45-second product film cut down for web, social, and a live keynote.",
+      "Motion that helps, not distracts: <strong>animated text, 2D & 3D animation, flyer animation, launch films, Lottie, storyboards, sound design</strong> — mainly After Effects and Cinema 4D. Example: <em>Orbit — Launch</em>, a 45-second product video with shorter versions for web, social, and a live keynote.",
   },
   {
     keys: [
@@ -120,7 +120,7 @@ const CHAT_KB = [
       "growth", "analytics", "email marketing", "email", "conversion", "landing page", "funnel",
     ],
     reply:
-      "Marketing with a creative backbone: <strong>paid social, SEO & content, email marketing, analytics, and landing pages / web applications</strong> — measured on real outcomes, not vanity metrics. Example: <em>Lumen Series</em>, an always-on acquisition system with a <strong>3.4× ROAS</strong>.",
+      "Marketing with a creative backbone: <strong>paid social, SEO & content, email marketing, analytics, and landing pages / web applications</strong> — measured by real results, not just good-looking numbers. Example: <em>Lumen Series</em>, an ongoing marketing program with a <strong>3.4× return on ad spend</strong>.",
   },
   {
     keys: [
@@ -128,12 +128,12 @@ const CHAT_KB = [
       "specialise", "expertise", "disciplines", "craft",
     ],
     reply:
-      "Che works across four practices:<br>• <strong>Web development</strong> — sites, product UI, full-stack apps<br>• <strong>Graphic design</strong> — identity, typography, flyers, posters, video editing<br>• <strong>Motion design</strong> — kinetic type, 2D/3D animation, launch films<br>• <strong>Digital marketing</strong> — SEO, paid social, email, landing pages<br>One person, one standard of craft. Ask about any of them.",
+      "Che works across four areas:<br>• <strong>Web development</strong> — websites, product interfaces, full-stack apps<br>• <strong>Graphic design</strong> — identity, typography, flyers, posters, video editing<br>• <strong>Motion design</strong> — animated text, 2D/3D animation, launch films<br>• <strong>Digital marketing</strong> — SEO, paid social, email, landing pages<br>One person, one standard of quality. Ask about any of them.",
   },
   {
     keys: ["process", "how do you work", "how you work", "workflow", "start a project", "get started", "onboarding", "timeline", "how long does it take"],
     reply:
-      "Simple process: you send a brief (job spec, project, or half-formed idea), Che replies within two business days, then it’s scope → kickoff → build → ship, with clean documentation and handoff at the end. Start on the <a href='#contact'>contact form</a>.",
+      "Simple process: you send a brief (a job description, a project, or a rough idea), Che replies within two business days, then it’s plan → build → launch, with clear documentation at handover. Start on the <a href='#contact'>contact form</a>.",
   },
   {
     keys: ["skills", "skill", "tools", "tool", "software", "toolkit", "what do you use", "programs"],
@@ -143,17 +143,17 @@ const CHAT_KB = [
   {
     keys: ["experience", "years", "how long", "senior", "junior", "career", "worked", "practice", "qualified"],
     reply:
-      "Che has <strong>2+ years of hands-on practice</strong> across the four crafts and <strong>10+ completed projects</strong> — brand systems, storefronts, launch films, and growth campaigns. The route in: art direction → interfaces. More in <a href='#about'>About</a>.",
+      "Che has <strong>over 2 years of hands-on experience</strong> across the four skills, <strong>10+ completed projects</strong>, has <strong>trained 40 learners</strong>, and has worked with <strong>2 organisations</strong> — brand systems, online stores, launch films, and marketing campaigns. The route in: art direction → websites. More in <a href='#about'>About</a>.",
   },
   {
     keys: ["stats", "statistics", "numbers", "achievements", "metrics", "results", "track record"],
     reply:
-      "Quick numbers: <strong>2+ years</strong> in practice · <strong>10+ projects</strong> completed · <strong>40 brand systems</strong> · <strong>98 avg. Lighthouse</strong> score · <strong>3.4× ROAS</strong> on the Lumen Series campaign.",
+      "Quick numbers: <strong>3 years</strong> of experience · <strong>10+ projects</strong> delivered · <strong>40 learners</strong> trained · <strong>2 organisations</strong> worked with · <strong>98 avg. Lighthouse</strong> score · <strong>3.4× return on ad spend</strong> on the Lumen Series campaign.",
   },
   {
     keys: ["lighthouse", "performance", "speed", "fast", "optimization", "optimisation", "page speed", "accessibility", "a11y", "responsive"],
     reply:
-      "Performance is treated as craft, not a checkbox: Che’s builds average a <strong>98 Lighthouse</strong> score — <em>Maison Atelier</em> shipped a 98 in production — with responsive systems, accessibility, and technical SEO baked in.",
+      "Performance is part of the job, not an afterthought: Che’s builds average a <strong>98 Lighthouse</strong> score — <em>Maison Atelier</em> shipped a 98 in production — with responsive layouts, accessibility, and technical SEO built in.",
   },
   {
     keys: [
@@ -162,12 +162,12 @@ const CHAT_KB = [
       "collaborate", "work together", "work with you",
     ],
     reply:
-      "Che is currently open to <strong>full-time in-house roles</strong> and <strong>select freelance projects</strong> — remote-first, happy to hybrid. Typical reply time is <strong>two business days</strong>. If you’re hiring, send a job spec via the <a href='#contact'>contact form</a>.",
+      "Che is currently open to <strong>full-time roles</strong> and <strong>select freelance projects</strong> — remote first, open to hybrid. Typical reply time is <strong>two business days</strong>. If you’re hiring, send a job description via the <a href='#contact'>contact form</a>.",
   },
   {
     keys: ["contact", "email", "reach", "get in touch", "touch", "message", "whatsapp", "phone", "call", "dm"],
     reply:
-      "Easiest routes:<br>• <strong>Email</strong> — hello@averycole.studio<br>• <strong>WhatsApp</strong> — button in the <a href='#contact'>contact section</a><br>• <strong>Form</strong> — for job specs or project briefs<br>Che typically replies within two business days.",
+      "Easiest ways to reach Che:<br>• <strong>Email</strong> — hello@averycole.studio<br>• <strong>WhatsApp</strong> — button in the <a href='#contact'>contact section</a><br>• <strong>Form</strong> — for job descriptions or project briefs<br>Che usually replies within two business days.",
   },
   {
     keys: ["resume", "cv", "curriculum", "download"],
@@ -181,7 +181,7 @@ const CHAT_KB = [
   {
     keys: ["price", "pricing", "cost", "rate", "rates", "budget", "quote", "how much", "charge", "salary", "expensive", "affordable"],
     reply:
-      "Rates aren’t listed on the site — they depend on scope, timeline, and engagement type. Send a short brief (what you need, when, rough budget) through the <a href='#contact'>contact form</a> and Che will get back to you within two business days.",
+      "Rates aren’t listed on the site — they depend on the work, the timeline, and the type of project. Send a short brief (what you need, when, and a rough budget) through the <a href='#contact'>contact form</a> and Che will get back to you within two business days.",
   },
   {
     keys: ["social", "socials", "social media", "github", "linkedin", "behance", "dribbble", "twitter", "instagram", "pinterest", "youtube", "follow"],
