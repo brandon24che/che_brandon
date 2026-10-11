@@ -13,19 +13,19 @@ const CHAT_FALLBACK =
 
 const CHAT_KB = [
   {
-    keys: ["maison", "maison atelier", "storefront", "ecommerce", "e commerce", "online store", "shop"],
+    keys: ["restaurant", "restaurant website", "food", "menu", "online ordering", "order online", "ordering", "reservation", "reservations", "table booking", "bilingual", "rest vercel"],
     reply:
-      "<strong>Maison Atelier</strong> — web development. A custom online store for a luxury home brand: smooth product pages, tasteful motion, and a <strong>98 Lighthouse</strong> performance score on the live site.",
+      "<strong>Restaurant Website</strong> — web development. A modern restaurant website with <strong>online ordering</strong>, <strong>table reservations</strong>, and <strong>bilingual support</strong>, built for a 98 Lighthouse performance score. <a href='https://rest-xi-pearl.vercel.app/' target='_blank' rel='noopener'>View it live</a>.",
   },
   {
-    keys: ["northline", "brand book", "climate tech", "climate"],
+    keys: ["ttset", "flyer", "training program", "digital marketing training", "training", "learners"],
     reply:
-      "<strong>Northline</strong> — graphic design. Brand identity, typography, and a <strong>48-page brand book</strong> for a climate-tech studio — designed to work everywhere, from investor presentations to signage.",
+      "<strong>TTSET Digital Marketing Training flyer</strong> — graphic design. A promotional flyer for a hands-on <strong>Digital Marketing Training Program</strong>, with custom typography and a structured information hierarchy. The program has trained <strong>40+ learners</strong>.",
   },
   {
-    keys: ["orbit", "launch film", "product film", "kinetic type"],
+    keys: ["orbit", "launch film", "product film", "kinetic type", "gadget", "showreel"],
     reply:
-      "<strong>Orbit — Launch</strong> — motion design. A <strong>45-second product video</strong> with a reusable animated-text system. Shorter versions were made for paid social, the website hero, and a live keynote.",
+      "<strong>Orbit — Launch</strong> — motion design. A <strong>45-second product video</strong> with animated text, used on the website, at events, and in <strong>paid social ads</strong>. You can play it right in <a href='#work'>Selected Work</a>.",
   },
   {
     keys: ["lumen", "acquisition", "roas", "return on ad spend", "ad spend"],
@@ -53,7 +53,7 @@ const CHAT_KB = [
   {
     keys: ["project", "projects", "portfolio", "case study", "case studies", "selected work", "your work", "clients", "client", "work"],
     reply:
-      "Six projects are featured:<br>• <strong>Maison Atelier</strong> — custom online store, 98 Lighthouse<br>• <strong>Northline</strong> — brand identity + 48-page brand book<br>• <strong>Orbit — Launch</strong> — 45s product video, animated text<br>• <strong>Lumen Series</strong> — marketing program, 3.4× return on ad spend<br>• <strong>Atelier Journal</strong> — online magazine, custom CMS<br>• <strong>Solace Botanics</strong> — packaging for an 11-product wellness launch<br>Browse them in <a href='#work'>Selected Work</a> — or ask about any one by name.",
+      "Six projects are featured:<br>• <strong>Restaurant Website</strong> — online ordering, table reservations, bilingual support<br>• <strong>TTSET Digital Marketing Training flyer</strong> — training-program flyer, 40+ learners<br>• <strong>Orbit — Launch</strong> — 45s product video, animated text<br>• <strong>Lumen Series</strong> — marketing program, 3.4× return on ad spend<br>• <strong>Atelier Journal</strong> — online magazine, print-like reading<br>• <strong>Solace Botanics</strong> — packaging for an 11-product wellness launch<br>Browse them in <a href='#work'>Selected Work</a> — or ask about any one by name.",
   },
   {
     keys: [
@@ -63,7 +63,7 @@ const CHAT_KB = [
       "api", "website", "websites", "web app", "web design",
     ],
     reply:
-      "Development is the core skill: fast, easy-to-use websites and full-stack builds — <strong>HTML/CSS/JS, PHP, React, Node.js, Firebase, Supabase, MongoDB</strong>, simple content management (CMS), responsive layouts, and technical SEO. Work averages a <strong>98 Lighthouse</strong> score. Recent build: <em>Maison Atelier</em>, a custom online store for a luxury home brand.",
+      "Development is the core skill: fast, easy-to-use websites and full-stack builds — <strong>HTML/CSS/JS, PHP, React, Node.js, Firebase, Supabase, MongoDB</strong>, simple content management (CMS), responsive layouts, and technical SEO. Work averages a <strong>98 Lighthouse</strong> score. Recent build: <em>Restaurant Website</em> — online ordering, table reservations, and bilingual support.",
   },
   {
     keys: [
@@ -71,7 +71,7 @@ const CHAT_KB = [
       "flyer", "poster", "print", "video editing", "edit", "editing", "figma", "identity", "designer", "design",
     ],
     reply:
-      "Graphic design here means brand identity and visual design — clean, premium work: <strong>brand identity, art direction, typography, flyer & poster design, video editing, print & digital</strong>, built in Figma. Example: <em>Northline</em>, a full brand identity with a 48-page brand book.",
+      "Graphic design here means brand identity and visual design — clean, premium work: <strong>brand identity, art direction, typography, flyer & poster design, video editing, print & digital</strong>, built in Figma. Examples: the <em>TTSET Digital Marketing Training flyer</em> and <em>Solace Botanics</em> packaging for an 11-product launch.",
   },
   {
     keys: [
@@ -79,7 +79,7 @@ const CHAT_KB = [
       "lottie", "kinetic", "video", "film", "storyboard", "sound design",
     ],
     reply:
-      "Motion that helps, not distracts: <strong>animated text, 2D & 3D animation, flyer animation, launch films, Lottie, storyboards, sound design</strong> — mainly After Effects and Cinema 4D. Example: <em>Orbit — Launch</em>, a 45-second product video with shorter versions for web, social, and a live keynote.",
+      "Motion that helps, not distracts: <strong>animated text, 2D & 3D animation, flyer animation, launch films, Lottie, storyboards, sound design</strong> — mainly After Effects and Cinema 4D. Example: <em>Orbit — Launch</em>, a 45-second product video with animated text — playable in Selected Work.",
   },
   {
     keys: [
@@ -120,7 +120,7 @@ const CHAT_KB = [
   {
     keys: ["lighthouse", "performance", "speed", "fast", "optimization", "optimisation", "page speed", "accessibility", "a11y", "responsive"],
     reply:
-      "Performance is part of the job, not an afterthought: Che’s builds average a <strong>98 Lighthouse</strong> score — <em>Maison Atelier</em> shipped a 98 in production — with responsive layouts, accessibility, and technical SEO built in.",
+      "Performance is part of the job, not an afterthought: Che’s builds average a <strong>98 Lighthouse</strong> score — the <em>Restaurant Website</em> was built to that standard in production — with responsive layouts, accessibility, and technical SEO built in.",
   },
   {
     keys: [
