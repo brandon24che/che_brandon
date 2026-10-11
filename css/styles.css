@@ -1223,6 +1223,9 @@ html[data-theme="light"] .toggle-thumb {
   overflow: hidden;
   height: 210px;
   position: relative;
+}
+
+.project-media:has(img) {
   cursor: zoom-in;
 }
 
@@ -1240,7 +1243,7 @@ html[data-theme="light"] .toggle-thumb {
   backdrop-filter: blur(8px);
 }
 
-.project-media::after {
+.project-media:has(img)::after {
   content: "View image";
   position: absolute;
   left: 50%;
@@ -1260,21 +1263,23 @@ html[data-theme="light"] .toggle-thumb {
   backdrop-filter: blur(10px);
 }
 
-.project-media:hover::after,
-.project-media:focus-visible::after {
+.project-media:has(img):hover::after,
+.project-media:has(img):focus-visible::after {
   opacity: 1;
   transform: translate(-50%, -50%);
 }
 
-.project-media:focus-visible {
+.project-media:has(img):focus-visible {
   outline: 2px solid color-mix(in srgb, var(--accent) 70%, var(--ink));
   outline-offset: -2px;
 }
 
-.project-media img {
+.project-media img,
+.project-media video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 @keyframes filterIn {
@@ -1310,6 +1315,42 @@ html[data-theme="light"] .toggle-thumb {
   font-size: 0.92rem;
 }
 
+.project-highlight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 14px;
+  padding: 9px 12px;
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, var(--line));
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--accent) 9%, transparent);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.project-highlight strong {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+}
+
+.highlight-badge {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  flex: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.highlight-badge svg {
+  width: 14px;
+  height: 14px;
+}
+
 .project-links {
   display: flex;
   justify-content: space-between;
@@ -1318,8 +1359,7 @@ html[data-theme="light"] .toggle-thumb {
   font-weight: 700;
 }
 
-.project-links a,
-.text-btn {
+.project-links a {
   color: var(--ink);
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -1650,36 +1690,7 @@ html[data-theme="light"] .toggle-thumb {
   font-size: 13px;
 }
 
-/* ---------- 11. Modal ---------- */
-.modal {
-  border: 0;
-  border-radius: 20px;
-  padding: 0;
-  max-width: 520px;
-  background: var(--surface);
-  color: var(--ink);
-  box-shadow: var(--shadow);
-}
-
-.modal::backdrop {
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.modal-inner {
-  padding: 32px;
-  position: relative;
-}
-
-.modal-close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid var(--line);
-}
-
+/* ---------- 11. Modals ---------- */
 .image-modal {
   width: min(1120px, calc(100vw - 32px));
   max-width: none;
@@ -1844,10 +1855,6 @@ html[data-theme="light"] .toggle-thumb {
 
   .socials {
     flex-wrap: wrap;
-  }
-
-  .modal {
-    width: calc(100% - 24px);
   }
 }
 

@@ -4,39 +4,6 @@ const CONFIG = {
   formspreeId: "YOUR_FORM_ID",
 };
 
-const PROJECTS = {
-  maison: {
-    tag: "Web development",
-    title: "Maison Atelier",
-    body: "A custom online store for a luxury home brand. Smooth product pages, tasteful motion, and a 98 Lighthouse performance score on the live site.",
-  },
-  northline: {
-    tag: "Graphic design",
-    title: "Northline",
-    body: "Brand identity and typography for a climate-tech studio, plus a 48-page brand book. Designed to work everywhere, from investor presentations to signage.",
-  },
-  orbit: {
-    tag: "Motion design",
-    title: "Orbit — Launch",
-    body: "A 45-second product video with a reusable animated-text system. Shorter versions were made for paid social, the website hero, and a live keynote.",
-  },
-  lumen: {
-    tag: "Digital marketing",
-    title: "Lumen Series",
-    body: "An ongoing marketing program: creative testing, landing-page versions, and clear analytics tracking that delivered a 3.4× return on ad spend over two quarters.",
-  },
-  journal: {
-    tag: "Web development",
-    title: "Atelier Journal",
-    body: "An online magazine with chapters that open as you scroll, custom content fields, and a reading experience that feels closer to print than a blog.",
-  },
-  solace: {
-    tag: "Graphic design",
-    title: "Solace Botanics",
-    body: "Packaging design and campaign photos for an 11-product wellness launch. Simple materials, strong typography, and packaging that stands out on the shelf.",
-  },
-};
-
 /* Chatbot knowledge base — answers only from this site's own content */
 const CHAT_INTRO =
   "Hey — I’m Che’s portfolio assistant. I know this site inside out: skills, projects, experience, availability, and how to get in touch. What can I help with?";
@@ -222,7 +189,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollSpy();
   initScrollProgress();
   initForm();
-  initModal();
   initAboutCounters();
   initImageViewer();
   initMagnetic();
@@ -700,29 +666,6 @@ function initForm() {
       status.textContent = "Message sent. I’ll get back to you shortly.";
       status.classList.add("success");
     }
-  });
-}
-
-/* ---------- Project modal ---------- */
-function initModal() {
-  const modal = document.getElementById("project-modal");
-  if (!modal) return;
-
-  document.querySelectorAll("[data-project]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const data = PROJECTS[btn.dataset.project];
-      if (!data) return;
-      document.getElementById("modal-tag").textContent = data.tag;
-      document.getElementById("modal-title").textContent = data.title;
-      document.getElementById("modal-body").textContent = data.body;
-      if (window.lucide) lucide.createIcons();
-      modal.showModal();
-    });
-  });
-
-  modal.querySelector("[data-close-modal]").addEventListener("click", () => modal.close());
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) modal.close();
   });
 }
 
