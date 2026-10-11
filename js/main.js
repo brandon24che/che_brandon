@@ -1,7 +1,7 @@
 /* Avery Cole — interactions, theme, filters, form, motion */
 
 const CONFIG = {
-  formspreeId: "YOUR_FORM_ID",
+  formspreeId: "https://formspree.io/f/xvkzqbqk",
 };
 
 /* Chatbot knowledge base — answers only from this site's own content */
@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* ---------- Theme ---------- */
 function initTheme() {
-  const stored = localStorage.getItem("ac-theme");
+  const stored = localStorage.getItem("cb-theme");
   const theme = stored || "dark";
   applyTheme(theme);
 
